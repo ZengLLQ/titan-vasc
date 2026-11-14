@@ -36,10 +36,14 @@ jobs:
           python -m compileall src
 
       - name: Run test suite with pytest
+        env:
+          PYTHONPATH: .
         run: |
           pytest -v --durations=10
 
       - name: Execute CLI smoke tests
+        env:
+          PYTHONPATH: .
         run: |
           titan-vasc --help
           python -m titan_vasc.cli benchmark
@@ -48,6 +52,8 @@ jobs:
           python -m titan_vasc.cli demo
 
       - name: Execute standalone examples
+        env:
+          PYTHONPATH: .
         run: |
           python examples/01_healthy_vs_aneurysm_hemodynamics.py
           python examples/02_hgo_hyperelastic_rupture_risk.py

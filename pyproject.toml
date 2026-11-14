@@ -48,6 +48,7 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src", "."]
 addopts = "-v --strict-markers"
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
